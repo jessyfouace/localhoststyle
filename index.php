@@ -23,9 +23,14 @@ $title = 'Localhost - Accueil';
     <h1>Bienvenue dans le <?php echo $_SERVER['SERVER_NAME']; ?></h1>
 </div>
 
-<form class="col-8 mx-auto p-0 mt-3 mb-3 text-center" action="phpmyadmin" method="post">
-    <input type="submit" class="mr-3 btn btn-info" value="Php My Admin">
-</form>
+<div class="row">
+    <form class="col-6 mx-auto p-0 mt-3 mb-3 text-right" action="phpmyadmin" method="post">
+        <input type="submit" class="mr-3 btn btn-info" value="Php My Admin">
+    </form>
+    <form class="col-6 mx-auto p-0 mt-3 mb-3 text-left" action="localhost/phpinfo.php" method="post">
+        <input type="submit" class="mr-3 btn btn-info" value="Php Info">
+    </form>
+</div>
 <div class="col-8 row mx-auto m-0 p-0">
     <form class="col-6 mx-auto p-0 m-0 mb-3 text-right" action="index.php" method="get">
         <input type="search" class="col-6" name="terme" id="tags">
