@@ -39,5 +39,8 @@
         a{
             color: #565452 !important;
         }
+        body{
+            overflow-x: hidden;
+        }
     </style>
     <body>        
