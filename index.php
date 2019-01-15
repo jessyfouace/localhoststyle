@@ -25,10 +25,10 @@ $title = 'Localhost - Accueil';
 
 <div class="row">
     <form class="col-6 mx-auto p-0 mt-3 mb-3 text-right" action="phpmyadmin" method="post">
-        <input type="submit" class="mr-3 btn btn-info" value="Php My Admin">
+        <input type="submit" class="mr-2 btn btn-info" value="Php My Admin">
     </form>
     <form class="col-6 mx-auto p-0 mt-3 mb-3 text-left" action="localhost/phpinfo.php" method="post">
-        <input type="submit" class="mr-3 btn btn-info" value="Php Info">
+        <input type="submit" class="mr-2 btn btn-info" value="Php Info">
     </form>
 </div>
 <div class="col-8 row mx-auto m-0 p-0">
@@ -36,7 +36,7 @@ $title = 'Localhost - Accueil';
         <input type="search" class="col-6" name="terme" id="tags">
         <input class="mr-2 btn btn-primary col-5" type="submit" name="s" value="Rechercher">
     </form>
-    <form action="index.php" class="col-6 text-left" method="post">
+    <form action="index.php" class="col-6 text-left m-0 p-0" method="post">
         <input type="submit" class="btn btn-danger" value="Annuler la recherche">
     </form>
 </div>
