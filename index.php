@@ -6,29 +6,33 @@ $title = 'Localhost - Accueil';
 <?php include 'localhost/header.php'; ?>
 
 <?php
+$message = '';
     if (isset($_POST['projetremove'])) {
         rmdir($_POST['projetremove']);
         header('location: index.php');
     }
     if (isset($_POST['projetrename'])) {
         if (isset($_POST['newname'])) {
-            chmod($_POST['projetrename'], 0777);
-            rename($_POST['projetrename'], $_POST['newname']);
-            header('location: index.php');
+            if (!file_exists($_POST['newname'])) {
+                chmod($_POST['projetrename'], 0777);
+                rename($_POST['projetrename'], $_POST['newname']);
+                header('location: index.php');
+            } else {
+                $message = 'Impossible de renommer le fichier ' . $_POST['projetrename'] . ' car le fichier ' . $_POST['newname'] . ' existe déjà.';
+            }
         }
     }
 ?>
-
 <div class="col-12 text-center">
     <h1>Bienvenue dans le <?php echo $_SERVER['SERVER_NAME']; ?></h1>
 </div>
 
-<div class="row">
+<div class="col-8 row mx-auto m-0 p-0">
     <form class="col-6 mx-auto p-0 mt-3 mb-3 text-right" action="phpmyadmin" method="post">
-        <input type="submit" class="mr-2 btn btn-info" value="Php My Admin">
+        <input type="submit" class="mr-2 col-5 btn btn-info" value="Php My Admin">
     </form>
     <form class="col-6 mx-auto p-0 mt-3 mb-3 text-left" action="localhost/phpinfo.php" method="post">
-        <input type="submit" class="mr-2 btn btn-info" value="Php Info">
+        <input type="submit" class="mr-2 btn col-5 btn-info" value="Php Info">
     </form>
 </div>
 <div class="col-8 row mx-auto m-0 p-0">
@@ -37,10 +41,10 @@ $title = 'Localhost - Accueil';
         <input class="mr-2 btn btn-primary col-5" type="submit" name="s" value="Rechercher">
     </form>
     <form action="index.php" class="col-6 text-left m-0 p-0" method="post">
-        <input type="submit" class="btn btn-danger" value="Annuler la recherche">
+        <input type="submit" class="btn btn-danger col-5" value="Annuler">
     </form>
 </div>
-
+<p style="color: red; font-size: 20px;" class="font-weight-bold text-center mt-3 mb-4"><?= $message ?></p>
 <?php if (!isset($_GET['terme'])) {
     ?>
 <table class="col-8 table-striped mx-auto">
@@ -144,6 +148,7 @@ $(function() {
     var scriptData = '<?= json_encode($folders) ?>';
     var parseTable = JSON.parse(scriptData);
     var availableTags = [];
+    var idprincipal = document.getElementById('test');
     for (let i = 0; i < parseTable.length; i++) {
         availableTags.push(parseTable[i])
     }
