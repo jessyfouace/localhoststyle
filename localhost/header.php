@@ -3,6 +3,7 @@
     <head>
         <title><?php echo $title; ?></title>
         <link href="localhost/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link href="/localhost/jquery-ui-1.8.23.custom/css/ui-lightness/jquery-ui-1.8.23.custom.css" type="text/css" rel="stylesheet" />
         <script src="/localhost/jquery-ui-1.8.23.custom/js/jquery-1.8.0.min.js" type="text/javascript"></script>
         <script src="/localhost/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js" type="text/javascript"></script>
@@ -41,6 +42,23 @@
         }
         body{
             overflow-x: hidden;
+        }
+        .display{
+            display: none;
+        }
+        .display:hover{
+            display: flex !important;
+        }
+        .displaydiv:focus ~ .display{
+            display: flex !important;
+        }
+        .displaynonediv{
+            background-color: inherit;
+            border: none;
+            position: absolute;
+            top: 3px;
+            right: 15px;
+            color: black !important;
         }
     </style>
     <body>        

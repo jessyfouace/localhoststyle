@@ -27,6 +27,7 @@ $message = '';
     <h1>Bienvenue dans le <?php echo $_SERVER['SERVER_NAME']; ?></h1>
 </div>
 
+
 <div class="col-8 row mx-auto m-0 p-0">
     <form class="col-6 mx-auto p-0 mt-3 mb-3 text-right" action="phpmyadmin" method="post">
         <input type="submit" class="mr-2 col-5 btn btn-info" value="Php My Admin">
@@ -83,10 +84,17 @@ $message = '';
                         </form>
                     </td>
                     <td>
-                        <form action="index.php" method="post">
-                            <input type="hidden" value="<?= $folder ?>" name="projetremove">
-                            <input type="submit" class="btn btn-danger" value="Supprimer">
-                        </form>
+                        <button class="displaydiv btn btn-danger">Supprimer</button>
+                        <div class="display" style="display: none; height: 100vh; width: 100%; background: rgba(238, 235, 237, 0.9); position: fixed; z-index: 5555; left: 0; top: 0;">
+                            <div style="background-color: white; height: 25%; border-radius: 5px; border: 1px solid black;" class="my-auto mx-auto col-5">
+                                <h2 style="color: black; font-size: 20px; font-weight: bold;" class="pt-2">Supprimer réellement <?= $folder ?> ?</h2>
+                                <a class="displaynonediv" href="index.php"><i class="fas fa-times fa-2x"></i></a>
+                                <form action="index.php" class="text-right" style="bottom: 3px; position: absolute; right: 3px;" method="post">
+                                    <input type="hidden" value="<?= $folder ?>" name="projetremove">
+                                    <input type="submit" class="btn btn-danger" value="Supprimer">
+                                </form>
+                            </div>
+                        </div>
                     </td>
                 </tr>
                 <?php
@@ -157,4 +165,5 @@ $(function() {
         minLength:1
     }); 
 });
+
 </script>
